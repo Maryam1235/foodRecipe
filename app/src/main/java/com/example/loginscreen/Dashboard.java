@@ -2,6 +2,7 @@ package com.example.loginscreen;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -10,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity {
@@ -22,11 +24,31 @@ public class Dashboard extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dashboard);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                int id = item.getItemId();
+
+                if (id == R.id.nav_home) {
+                    return true;
+                } else if (id == R.id.nav_profile) {
+                    startActivity(new Intent(getApplicationContext(), Profile.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                } else if (id == R.id.nav_explore) {
+                    startActivity(new Intent(getApplicationContext(), ExploreActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+
+                return false;
+            }
+
         });
+
 
         // Logout button
         Button btnLogout = findViewById(R.id.btnLogout);
@@ -54,4 +76,5 @@ public class Dashboard extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
         }
     }
+
 }
