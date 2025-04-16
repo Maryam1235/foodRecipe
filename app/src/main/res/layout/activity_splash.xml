@@ -8,21 +8,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/loginbkg"
+    android:background="@drawable/foodbg"
     tools:context=".Splash">
 
     <ImageView
         android:layout_width="134dp"
         android:layout_height="149dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/logo1"
+        android:background="@mipmap/ic_food"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Live it Love it!"
-        android:textColor="@color/black"
-        android:textSize="30sp"
+        android:text="Discover.Cook.Enjoy"
+        android:textStyle="bold"
+        android:textColor="@color/maroon"
+        android:textSize="36dp"
         android:textAlignment="center"
         android:layout_marginTop="24dp"/>
 

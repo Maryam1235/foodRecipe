@@ -29,7 +29,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    int displaytime = 1200;
+                    int displaytime = 5000;
                     int waittime = 0;
                     while (waittime < displaytime) {
                         sleep(100);

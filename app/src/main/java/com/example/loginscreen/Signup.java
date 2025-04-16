@@ -58,9 +58,11 @@ public class Signup extends AppCompatActivity {
                     mAuth.createUserWithEmailAndPassword(emailInput, pass)
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(Signup.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(Signup.this, MainActivity.class));
-                                    finish();
+                                    mAuth.signOut(); // Force logout after signup
+                                    Toast.makeText(Signup.this, "Registration Successful. Please login.", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Signup.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish(); // prevent going back to signup on back press
                                 } else {
                                     Toast.makeText(Signup.this, "Registration Failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                                 }
