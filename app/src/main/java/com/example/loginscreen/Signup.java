@@ -3,9 +3,11 @@ package com.example.loginscreen;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,10 @@ public class Signup extends AppCompatActivity {
     EditText username, email, password, retypePassword;
     TextView loginText;
     Button signupButton;
+    ImageView ivPasswordToggle;
+    ImageView ivConfirmPasswordToggle;
+    boolean isPasswordVisible = false;
+    boolean isConfirmPasswordVisible = false;
 
     FirebaseAuth mAuth;
 
@@ -34,6 +40,8 @@ public class Signup extends AppCompatActivity {
         email = findViewById(R.id.email);       // Email used for Firebase authentication
         password = findViewById(R.id.password);
         retypePassword = findViewById(R.id.retypePassword);
+        ivPasswordToggle = findViewById(R.id.ivPasswordToggle);
+        ivConfirmPasswordToggle = findViewById(R.id.ivConfirmPasswordToggle);
         signupButton = findViewById(R.id.signupButton);
         loginText = findViewById(R.id.loginText);
 
@@ -68,6 +76,37 @@ public class Signup extends AppCompatActivity {
                                 }
                             });
                 }
+            }
+        });
+        ivPasswordToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isPasswordVisible) {
+                    password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    ivPasswordToggle.setImageResource(R.drawable.ic_eye_off); // eye = hidden
+                } else {
+                    password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    ivPasswordToggle.setImageResource(R.drawable.ic_eye); // eye-off = visible
+                }
+                // Keep cursor at end
+                password.setSelection(password.length());
+                isPasswordVisible = !isPasswordVisible;
+            }
+        });
+
+        ivConfirmPasswordToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isConfirmPasswordVisible) {
+                    retypePassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    ivConfirmPasswordToggle.setImageResource(R.drawable.ic_eye_off); // eye = hidden
+                } else {
+                    retypePassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    ivConfirmPasswordToggle.setImageResource(R.drawable.ic_eye); // eye-off = visible
+                }
+                // Keep cursor at end
+                retypePassword.setSelection(retypePassword.length());
+                isConfirmPasswordVisible = !isConfirmPasswordVisible;
             }
         });
 

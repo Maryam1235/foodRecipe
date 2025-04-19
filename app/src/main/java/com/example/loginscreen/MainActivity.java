@@ -2,9 +2,11 @@ package com.example.loginscreen;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     EditText password;
     Button loginButton;
     TextView signupText, forgetPassword;
+    ImageView    ivPasswordToggle;
+    boolean isPasswordVisible = false;
 
     private FirebaseAuth mAuth;
 
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
         signupText = findViewById(R.id.signupText);
+        ivPasswordToggle = findViewById(R.id.ivPasswordToggle);
         forgetPassword = findViewById(R.id.forgetPassword);
 
         // Login with Firebase
@@ -61,6 +66,22 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                 }
+            }
+        });
+
+        ivPasswordToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isPasswordVisible) {
+                    password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    ivPasswordToggle.setImageResource(R.drawable.ic_eye_off); // eye = hidden
+                } else {
+                    password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    ivPasswordToggle.setImageResource(R.drawable.ic_eye); // eye-off = visible
+                }
+                // Keep cursor at end
+                password.setSelection(password.length());
+                isPasswordVisible = !isPasswordVisible;
             }
         });
 
