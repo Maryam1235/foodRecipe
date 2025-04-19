@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/foodbg"
+    android:background="@drawable/backgroundimg"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -42,8 +42,9 @@
             android:id="@+id/email"
             android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:paddingLeft="10dp"
             android:drawablePadding="8dp"
-            android:hint="email"
+            android:hint="Email"
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textColorHighlight="@color/cardview_dark_background"
@@ -53,7 +54,8 @@
             android:layout_height="50dp"
             android:id="@+id/password"
             android:background="@drawable/custom_edittext"
-            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:drawableLeft="@drawable/lock_solid"
+            android:paddingLeft="10dp"
             android:drawablePadding="8dp"
             android:hint="Password"
             android:inputType="textPassword"

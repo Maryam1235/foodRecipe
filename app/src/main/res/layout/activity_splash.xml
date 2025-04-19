@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/foodbg"
+    android:background="@drawable/backgroundimg"
     tools:context=".Splash">
 
     <ImageView

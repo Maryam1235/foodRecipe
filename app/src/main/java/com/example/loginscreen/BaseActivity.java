@@ -69,11 +69,12 @@ public class BaseActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show();
-            return true;
+            Intent intent = new Intent(BaseActivity.this, SettingsActivity.class);
+            startActivity(intent);
         } else if (id == R.id.action_contacts) {
-            Toast.makeText(this, "Contacts Clicked", Toast.LENGTH_SHORT).show();
-            return true;
+            Intent intent = new Intent(BaseActivity.this, ContactsActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.action_logout) {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(BaseActivity.this, MainActivity.class);
