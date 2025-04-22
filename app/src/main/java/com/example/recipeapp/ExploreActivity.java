@@ -1,7 +1,6 @@
-package com.example.loginscreen;
+package com.example.recipeapp;
 
 import android.os.Bundle;
-import com.example.loginscreen.BaseActivity;
 
 
 public class ExploreActivity extends BaseActivity {

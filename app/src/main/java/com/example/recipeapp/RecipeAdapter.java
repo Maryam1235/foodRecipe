@@ -1,4 +1,4 @@
-package com.example.loginscreen;
+package com.example.recipeapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.example.loginscreen;
+package com.example.recipeapp;
 
 public class Recipe {
     private final int imageResId;

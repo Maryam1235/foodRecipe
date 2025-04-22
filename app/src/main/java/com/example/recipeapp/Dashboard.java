@@ -1,4 +1,4 @@
-package com.example.loginscreen;
+package com.example.recipeapp;
 
 import android.os.Bundle;
 import android.widget.SearchView;
