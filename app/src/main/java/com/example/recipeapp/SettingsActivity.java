@@ -28,5 +28,13 @@ public class SettingsActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+        LinearLayout aboutAppLayout = findViewById(R.id.about_app_layout);
+        aboutAppLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsActivity.this, AboutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
