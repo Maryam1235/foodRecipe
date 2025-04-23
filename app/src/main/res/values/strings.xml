@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Food Recipe</string>
+    <string name="about">
+Welcome to Recipe App – your ultimate cooking companion!
+
+Whether you are a beginner or a pro in the kitchen,
+        Recipe app brings you a wide variety of delicious recipes from all around the world.
+        Discover new dishes, cook your favorites, and enjoy every meal!
+</string>
 </resources>

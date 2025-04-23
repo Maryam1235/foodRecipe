@@ -26,21 +26,6 @@ public class Dashboard extends BaseActivity {
 
         setupCommonUI();
 
-        // 🔍 Setup SearchView
-        SearchView searchView = findViewById(R.id.searchView);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false; // Not needed
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.filterList(newText);
-                return true;
-            }
-        });
-
         // 🖼️ Setup Image Slider
         ImageSlider imageSlider = findViewById(R.id.imageSlider);
         ArrayList<SlideModel> imageList = new ArrayList<>();
@@ -55,18 +40,20 @@ public class Dashboard extends BaseActivity {
         // Start sliding every 3 seconds (3000 milliseconds)
         imageSlider.startSliding(3000);  // Time in milliseconds (3 seconds)
 
-        // 🧾 Setup RecyclerView
+
+        // Initialize RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recipeRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Sample data
         recipeList.add(new Recipe(R.drawable.pizza1, "Pizza", "1. Prepare dough\n2. Add toppings\n3. Bake in oven"));
         recipeList.add(new Recipe(R.drawable.burger1, "Burger", "1. Toast bun\n2. Add veggies and meat\n3. Serve hot"));
-        recipeList.add(new Recipe(R.drawable.pasta1, "Pasta", "1. Boil pasta\n2. Add sauce\n3. Serve hot"));
+        recipeList.add(new Recipe(R.drawable.pasta1, "Pasta", "1. Boil the Pasta\n2. Add Tomato Sauce to make it better\n3. Add chilly for extra spicy\n4. Serve hot"));
 
-        // Adapter
+        // Set adapter
         adapter = new RecipeAdapter(this, recipeList);
         recyclerView.setAdapter(adapter);
+
     }
 
     @Override
