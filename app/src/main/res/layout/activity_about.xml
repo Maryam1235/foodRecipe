@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".AboutActivity">
+
+    <ImageView
+        android:layout_width="3004dp"
+        android:layout_height="300dp"
+        android:src="@drawable/pizza1"
+
+        />
+
+
+    <!-- About the App Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About the App"
+        android:textStyle="italic"
+        android:textSize="28sp"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="16dp"
+        android:layout_gravity="center"
+        android:textColor="@color/maroon"
+        android:textAppearance="@drawable/pizza1"
+     />
+
+    <!-- App Description -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This recipe app helps you discover and manage a variety of delicious dishes tailored to your preferences. Whether you're vegetarian, gluten-free, or just love trying new meals, this app is made for food lovers. Easily filter recipes, set measurement units, and get step-by-step instructions to become a kitchen pro!"
+        android:paddingStart="16dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="20dp"
+        android:textStyle="italic"
+        android:justificationMode="inter_word"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
+
+
+</LinearLayout>
