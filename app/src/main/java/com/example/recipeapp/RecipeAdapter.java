@@ -1,6 +1,7 @@
 package com.example.recipeapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +35,18 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     public void onBindViewHolder(RecipeAdapter.ViewHolder holder, int position) {
         Recipe recipe = filteredRecipeList.get(position);
         holder.title.setText(recipe.getTitle());
-        holder.description.setText(recipe.getDescription());
+        holder.duration.setText(recipe.getDuration());
         holder.image.setImageResource(recipe.getImageResId());
+
+        // Handle item click to open details activity
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, RecipeDetailActivity.class);
+            intent.putExtra("imageResId", recipe.getImageResId());
+            intent.putExtra("title", recipe.getTitle());
+            intent.putExtra("description", recipe.getDescription());
+            intent.putExtra("duration", recipe.getDuration());
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -45,18 +56,18 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
     // ViewHolder class
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, description;
+        TextView title, duration;
         ImageView image;
 
         public ViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.textTitle);
-            description = itemView.findViewById(R.id.textDescription);
+            duration = itemView.findViewById(R.id.textDuration);
             image = itemView.findViewById(R.id.imageView);
         }
     }
 
-    // Filter function
+    // Filter function for search functionality
     public void filterList(String query) {
         filteredRecipeList.clear();
         if (query == null || query.trim().isEmpty()) {
@@ -65,7 +76,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             String lowerQuery = query.toLowerCase();
             for (Recipe recipe : fullRecipeList) {
                 if (recipe.getTitle().toLowerCase().contains(lowerQuery) ||
-                        recipe.getDescription().toLowerCase().contains(lowerQuery)) {
+                        recipe.getDescription().toLowerCase().contains(lowerQuery) ||
+                        recipe.getDuration().toLowerCase().contains(lowerQuery)) {
                     filteredRecipeList.add(recipe);
                 }
             }

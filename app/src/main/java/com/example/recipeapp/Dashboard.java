@@ -46,9 +46,9 @@ public class Dashboard extends BaseActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Sample data
-        recipeList.add(new Recipe(R.drawable.pizza1, "Pizza", "1. Prepare dough\n2. Add toppings\n3. Bake in oven"));
-        recipeList.add(new Recipe(R.drawable.burger1, "Burger", "1. Toast bun\n2. Add veggies and meat\n3. Serve hot"));
-        recipeList.add(new Recipe(R.drawable.pasta1, "Pasta", "1. Boil the Pasta\n2. Add Tomato Sauce to make it better\n3. Add chilly for extra spicy\n4. Serve hot"));
+        recipeList.add(new Recipe(R.drawable.pizza1, "Pizza", "1. Prepare dough\n2. Add toppings\n3. Bake in oven","30 min"));
+        recipeList.add(new Recipe(R.drawable.burger1, "Burger", "1. Toast bun\n2. Add veggies and meat\n3. Serve hot","30 min"));
+        recipeList.add(new Recipe(R.drawable.pasta1, "Pasta", "1. Boil the Pasta\n2. Add Tomato Sauce to make it better\n3. Add chilly for extra spicy\n4. Serve hot","30 min"));
 
         // Set adapter
         adapter = new RecipeAdapter(this, recipeList);
