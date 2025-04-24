@@ -31,10 +31,14 @@ public class Dashboard extends BaseActivity {
         ImageSlider imageSlider = findViewById(R.id.imageSlider);
         ArrayList<SlideModel> imageList = new ArrayList<>();
 
-        imageList.add(new SlideModel(R.drawable.pizza1, "Delicious Pizza", null));
-        imageList.add(new SlideModel(R.drawable.burger1, "Juicy Burger", null));
+
+
         imageList.add(new SlideModel(R.drawable.pasta2, "Creamy Pasta", ScaleTypes.FIT));
         imageList.add(new SlideModel(R.drawable.cake, "Chocolate cake", ScaleTypes.FIT));
+
+        imageList.add(new SlideModel(R.drawable.pizza, "Delicious Pizza", ScaleTypes.FIT));
+        imageList.add(new SlideModel(R.drawable.burgerposter, "Juicy Burger", ScaleTypes.FIT));
+
 
         // Set image list to the slider
         imageSlider.setImageList(imageList);
