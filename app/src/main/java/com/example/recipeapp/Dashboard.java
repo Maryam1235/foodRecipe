@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -30,9 +31,9 @@ public class Dashboard extends BaseActivity {
         ImageSlider imageSlider = findViewById(R.id.imageSlider);
         ArrayList<SlideModel> imageList = new ArrayList<>();
 
-        imageList.add(new SlideModel(R.drawable.pizza1, "Delicious Pizza", null));
-        imageList.add(new SlideModel(R.drawable.burger1, "Juicy Burger", null));
-        imageList.add(new SlideModel(R.drawable.pasta1, "Creamy Pasta", null));
+        imageList.add(new SlideModel(R.drawable.pizza, "Delicious Pizza", ScaleTypes.FIT));
+        imageList.add(new SlideModel(R.drawable.burgerposter, "Juicy Burger", ScaleTypes.FIT));
+        imageList.add(new SlideModel(R.drawable.pasta1, "Creamy Pasta", ScaleTypes.FIT));
 
         // Set image list to the slider
         imageSlider.setImageList(imageList);
