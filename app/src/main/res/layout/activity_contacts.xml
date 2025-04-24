@@ -1,39 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@drawable/backgroundimg"
     tools:context=".ContactsActivity">
 
+    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
         android:backgroundTint="@color/maroon"
+        android:background="?attr/colorPrimary"
         app:title="Contact"
-        app:titleTextColor="@android:color/white" />
-    <View
+        app:titleTextColor="@android:color/white"
+        app:layout_collapseMode="pin"
+        android:layout_gravity="top" />
+
+    <!-- Scrollable Content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="56dp"
+        android:fillViewport="true">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="16dp">
 
+            <!-- Top Food Image -->
+            <ImageView
+                android:id="@+id/contactFoodImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/recipe" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/contactTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Us"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="26dp"
+                android:textColor="#000000"
+                android:layout_marginBottom="22dp"/>
+
+            <!-- Contact Fields -->
+            <TextView
+                android:id="@+id/staticPhone"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:text="📞 Phone: +254 712 345 678"
+                android:textSize="16sp"
+                android:textColor="#222"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_textview_bg"
+                android:elevation="2dp" />
+
+            <TextView
+                android:id="@+id/staticEmail"
+                android:layout_width="350dp"
+                android:layout_height="55dp"
+                android:text="📧 Email: info@foodtyme.com"
+                android:textSize="16sp"
+                android:textColor="#222"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_textview_bg"
+                android:elevation="2dp" />
+
+            <TextView
+                android:id="@+id/staticLocation"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="📍 Location: Bibi Titi Street, Dar es salaam"
+                android:textSize="16sp"
+                android:textColor="#222"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_textview_bg"
+                android:elevation="2dp" />
+
+            <TextView
+                android:id="@+id/businessHours"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:text="🕒 Business Hours: Mon - Fri, 9 AM - 6 PM"
+                android:textSize="16sp"
+                android:textColor="#222"
+                android:padding="12dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/rounded_textview_bg"
+                android:elevation="2dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:layout_gravity="bottom"
         android:background="#FFFFFF"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
         app:menu="@menu/bottom_nav_menu" />
 
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
