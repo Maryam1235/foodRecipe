@@ -28,9 +28,10 @@ public class ExploreActivity extends BaseActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Sample data
-        recipeList.add(new Recipe(R.drawable.pizza1, "Pizza", "1. Prepare dough\n2. Add toppings\n3. Bake in oven","Duration: 30 Minutes" ));
-        recipeList.add(new Recipe(R.drawable.burger1, "Burger", "1. Toast bun\n2. Add veggies and meat\n3. Serve hot" , "Duration: 80 Minutes" ));
-        recipeList.add(new Recipe(R.drawable.pasta1, "Pasta", "1. Boil the Pasta\n2. Add Tomato Sauce to make it better\n3. Add chilly for extra spicy\n4. Serve hot","Duration: 40 Minutes" ));
+        recipeList.add(new Recipe(R.drawable.pizza, "Pizza", "1. Prepare dough\n2. Add toppings\n3. Bake in oven","Duration: 30 Minutes" ));
+        recipeList.add(new Recipe(R.drawable.burgerposter, "Burger", "1. Toast bun\n2. Add veggies and meat\n3. Serve hot" , "Duration: 80 Minutes" ));
+        recipeList.add(new Recipe(R.drawable.pasta2, "Pasta", "1. Boil the Pasta\n2. Add Tomato Sauce to make it better\n3. Add chilly for extra spicy\n4. Serve hot","Duration: 40 Minutes" ));
+        recipeList.add(new Recipe(R.drawable.cake, "Cake", "1. Mix flour with milk and butter\n2. Stir until the mixture becomes smooth\n3. put in my bowl\n4. bake in the oven","Duration: 60 Minutes" ));
 
         // Set adapter
         adapter = new RecipeAdapter(this, recipeList);
